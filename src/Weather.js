@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import config from './APIconfig.json';
+import './Weather.css';
 
 const Weather = () => {
     const [city, setCity] = useState('');
@@ -34,14 +35,20 @@ return (
             value={city}
             onChange={(e) => setCity(e.target.value)}
             onKeyDown={handleSearch}
+            style={{ fontSize: '20px', padding: '10px' }}
         />
         {weatherData && (
             <div>
-                <h2>{weatherData.name}</h2>
-                <p>{weatherData.weather[0].description}</p>
-                <p>Temperature: {weatherData.main.temp}°C</p>
-                <p>Humidity: {weatherData.main.humidity}%</p>
-                <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+                <h2 style={{ fontSize: '30px' }}>{weatherData.name}</h2>
+                <img 
+                    src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} 
+                    alt={weatherData.weather[0].description} 
+                    style={{ width: '100px', height: '100px' }}
+                />
+                <p style={{ fontSize: '20px' }}>{weatherData.weather[0].description}</p>
+                <p style={{ fontSize: '20px' }}>Temperature: {weatherData.main.temp}°C</p>
+                <p style={{ fontSize: '20px' }}>Humidity: {weatherData.main.humidity}%</p>
+                <p style={{ fontSize: '20px' }}>Wind Speed: {weatherData.wind.speed} m/s</p>
             </div>
         )}
     </div>
