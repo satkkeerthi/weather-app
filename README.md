@@ -1,3 +1,8 @@
+# Weather App
+
+This is a simple weather application built on react that provides current weather information for various locations.
+Enter the city name in the search bar and the current weather along with the forecast for the next 5 days appears.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
